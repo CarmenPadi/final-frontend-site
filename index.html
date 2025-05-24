@@ -340,7 +340,9 @@
         <div id="gameFrame" style="display: none; margin-top: 20px; text-align: center;">
             <div style="background: #000; border: 3px solid #ff0000; padding: 10px;">
                 <button onclick="closeGame()" class="button" style="margin-bottom: 10px;">❌ CLOSE GAME</button>
-                <iframe id="gameIframe" width="640" height="480" frameborder="3" style="border: 3px solid #00ff00;"></iframe>
+                <iframe id="gameIframe" width="640" height="480" frameborder="3" 
+           style="border: 3px solid #00ff00;" 
+           onerror="handleGameError()"></iframe>
             </div>
         </div>
     </div>
@@ -375,7 +377,7 @@
         }
 
         // Auto-play some classic effects
-        setTimeout(showAlert, 2000);
+        
 
         // Sparkle cursor effect (simplified)
         document.addEventListener('mousemove', function(e) {
@@ -399,18 +401,20 @@ function openGame(gameType) {
     const gameFrame = document.getElementById('gameFrame');
     const gameIframe = document.getElementById('gameIframe');
     
-    // Replace these URLs with actual Wayback Machine URLs or local game files
+    // Example Wayback Machine URLs - replace with actual game URLs you find
     const gameUrls = {
-        'snake': 'games/snake/index.html', // Local file
-        'tetris': 'https://web.archive.org/web/20001109105200/http://www.freetetris.org/game.html', // Example Wayback URL
-        'invaders': 'games/invaders/index.html' // Local file
+        'snake': 'https://web.archive.org/web/20010515000000/http://www.addictinggames.com/snake.html',
+        'tetris': 'https://web.archive.org/web/20020601000000/http://www.tetrisfriends.com/games/Classic/game.php',
+        'invaders': 'https://web.archive.org/web/20000301000000/http://www.shockwave.com/games/spaceinvaders.html'
     };
     
-    gameIframe.src = gameUrls[gameType] || '#';
-    gameFrame.style.display = 'block';
-    
-    // Scroll to game
-    gameFrame.scrollIntoView({ behavior: 'smooth' });
+    if (gameUrls[gameType]) {
+        gameIframe.src = gameUrls[gameType];
+        gameFrame.style.display = 'block';
+        gameFrame.scrollIntoView({ behavior: 'smooth' });
+    } else {
+        alert('Game not available! Check back later!');
+    }
 }
 
 function closeGame() {
@@ -419,6 +423,10 @@ function closeGame() {
     
     gameFrame.style.display = 'none';
     gameIframe.src = '';
+}
+
+function handleGameError() {
+    alert('Oops! This game is having trouble loading. Try a different one!');
 }
     </script>
 </body>
