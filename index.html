@@ -7,7 +7,8 @@
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nowhere%202-HsQxnGLVacyojDRceXzldTuxyxRvOQ.jpeg');
+            /* Replace 'creature-bg.jpeg' with your actual image filename */
+            background-image: url('creature-bg.jpeg');
             background-repeat: repeat;
             background-size: 200px 200px;
             background-attachment: fixed;
@@ -15,6 +16,28 @@
             padding: 0;
             color: #000;
             overflow-x: auto;
+            /* Fallback gradient if image doesn't load */
+            background-color: #00ff00;
+        }
+
+        /* If image fails to load, show the original gradient */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            z-index: -2;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .container {
@@ -213,7 +236,7 @@
             background: #ffff99;
         }
 
-        /* Enhanced retro effects for the creature background */
+        /* Enhanced retro effects */
         .retro-glow {
             text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
         }
@@ -223,24 +246,15 @@
             box-shadow: 0 0 15px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.1);
         }
 
-        /* Fallback in case image doesn't load */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
-            background-size: 400% 400%;
-            animation: gradientShift 3s ease infinite;
-            z-index: -1;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        /* Test if image is loading */
+        .image-test {
+            width: 50px;
+            height: 50px;
+            background-image: url('creature-bg.jpeg');
+            background-size: cover;
+            border: 2px solid #ff0000;
+            display: inline-block;
+            margin: 5px;
         }
     </style>
 </head>
@@ -265,6 +279,7 @@
             <strong>🚧 UNDER CONSTRUCTION 🚧</strong>
             <img src="/placeholder.svg?height=50&width=100" alt="Under Construction" style="vertical-align: middle;">
             <br><small>👽 Alien technology being integrated... 👽</small>
+            <br><small>Image test: <span class="image-test"></span> (Should show creature if image loads)</small>
         </div>
 
         <div class="content">
@@ -304,6 +319,13 @@
                     <br><br>
                     <span class="retro-glow">👽 Now featuring authentic alien technology from Area 51! 👽</span>
                 </p>
+
+                <div style="background: rgba(255,255,255,0.8); padding: 10px; border: 2px solid #ff0000; margin: 10px 0;">
+                    <strong>📁 Image Setup Instructions:</strong><br>
+                    1. Save your creature image as "creature-bg.jpeg" in the same folder as this HTML file<br>
+                    2. Or change line 8 in the CSS to match your image filename<br>
+                    3. Refresh the page to see your alien background!
+                </div>
 
                 <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; background: rgba(255,255,204,0.9);">
                     <tr style="background: #ff6600; color: white;">
@@ -448,6 +470,7 @@
         </div>
     </div>
 
+    <!-- All the JavaScript game code stays the same -->
     <script>
         // Sparkle cursor effect
         document.addEventListener('mousemove', function(e) {
@@ -477,7 +500,7 @@
             const gameFrame = document.getElementById('gameFrame');
             const gameContent = document.getElementById('gameContent');
             
-            closeGame(); // Close any existing game
+            closeGame();
             
             gameFrame.style.display = 'block';
             currentGame = gameType;
