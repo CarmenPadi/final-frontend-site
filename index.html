@@ -7,20 +7,19 @@
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            /* Replace 'creature-bg.jpeg' with your actual image filename */
             background-image: url('creature-bg.jpeg');
             background-repeat: repeat;
             background-size: 200px 200px;
             background-attachment: fixed;
+            background-position: 0 0;
             margin: 0;
             padding: 0;
             color: #000;
             overflow-x: auto;
-            /* Fallback gradient if image doesn't load */
-            background-color: #00ff00;
+            /* Remove the fallback background-color that might be overriding */
         }
 
-        /* If image fails to load, show the original gradient */
+        /* Remove this entire section since your image is working:
         body::before {
             content: "";
             position: fixed;
@@ -33,6 +32,7 @@
             animation: gradientShift 3s ease infinite;
             z-index: -2;
         }
+        */
 
         @keyframes gradientShift {
             0% { background-position: 0% 50%; }
