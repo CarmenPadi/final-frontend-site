@@ -290,6 +290,62 @@
 
             <div style="clear: both;"></div>
 
+            <div style="clear: both; margin: 20px 0;">
+    <div style="background: linear-gradient(45deg, #ff00ff, #00ffff); border: 5px solid #ffff00; padding: 20px;">
+        <h2 style="text-align: center; color: white; text-shadow: 2px 2px 0px #000;">
+            🎮 RETRO GAME ARCADE 🎮
+        </h2>
+        
+        <table border="3" cellpadding="10" cellspacing="5" style="width: 100%; background: #ffffff;">
+            <tr style="background: #ff6600; color: white;">
+                <td><strong>Game</strong></td>
+                <td><strong>Description</strong></td>
+                <td><strong>Play</strong></td>
+            </tr>
+            <tr>
+                <td style="background: #ffff99;">
+                    <strong>🐍 Snake Classic</strong>
+                </td>
+                <td style="background: #ffccff;">
+                    The classic snake game from the 90s!
+                </td>
+                <td style="background: #ccffcc; text-align: center;">
+                    <a href="#" onclick="openGame('snake')" class="button">PLAY!</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="background: #ffff99;">
+                    <strong>🎯 Tetris 2000</strong>
+                </td>
+                <td style="background: #ffccff;">
+                    Stack those blocks like it's Y2K!
+                </td>
+                <td style="background: #ccffcc; text-align: center;">
+                    <a href="#" onclick="openGame('tetris')" class="button">PLAY!</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="background: #ffff99;">
+                    <strong>👾 Space Invaders</strong>
+                </td>
+                <td style="background: #ffccff;">
+                    Defend Earth from alien invasion!
+                </td>
+                <td style="background: #ccffcc; text-align: center;">
+                    <a href="#" onclick="openGame('invaders')" class="button">PLAY!</a>
+                </td>
+            </tr>
+        </table>
+        
+        <div id="gameFrame" style="display: none; margin-top: 20px; text-align: center;">
+            <div style="background: #000; border: 3px solid #ff0000; padding: 10px;">
+                <button onclick="closeGame()" class="button" style="margin-bottom: 10px;">❌ CLOSE GAME</button>
+                <iframe id="gameIframe" width="640" height="480" frameborder="3" style="border: 3px solid #00ff00;"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
             <div class="webring">
                 <strong>🌐 WEBRING 🌐</strong><br>
                 <a href="#">&lt;&lt; Previous</a> |
@@ -338,6 +394,32 @@
                 }, 1000);
             }
         });
+
+function openGame(gameType) {
+    const gameFrame = document.getElementById('gameFrame');
+    const gameIframe = document.getElementById('gameIframe');
+    
+    // Replace these URLs with actual Wayback Machine URLs or local game files
+    const gameUrls = {
+        'snake': 'games/snake/index.html', // Local file
+        'tetris': 'https://web.archive.org/web/20001109105200/http://www.freetetris.org/game.html', // Example Wayback URL
+        'invaders': 'games/invaders/index.html' // Local file
+    };
+    
+    gameIframe.src = gameUrls[gameType] || '#';
+    gameFrame.style.display = 'block';
+    
+    // Scroll to game
+    gameFrame.scrollIntoView({ behavior: 'smooth' });
+}
+
+function closeGame() {
+    const gameFrame = document.getElementById('gameFrame');
+    const gameIframe = document.getElementById('gameIframe');
+    
+    gameFrame.style.display = 'none';
+    gameIframe.src = '';
+}
     </script>
 </body>
 </html>
