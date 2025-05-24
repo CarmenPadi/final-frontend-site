@@ -9,6 +9,12 @@ pipeline {
                 }
             }
         }
+        
+    stage('Clean Up') {
+            steps {
+                sh 'docker rm -f retro-frontend || true'
+            }
+        }
 
         stage('Run Docker Container') {
             steps {
