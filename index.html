@@ -7,27 +7,23 @@
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
-            background-size: 400% 400%;
-            animation: gradientShift 3s ease infinite;
+            background-image: url('images/creature-bg.jpeg');
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            background-attachment: fixed;
             margin: 0;
             padding: 0;
             color: #000;
             overflow-x: auto;
         }
 
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         .container {
             width: 800px;
             margin: 0 auto;
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.95);
             border: 3px solid #ff0000;
             box-shadow: 5px 5px 15px #000000;
+            backdrop-filter: blur(2px);
         }
 
         .header {
@@ -61,7 +57,7 @@
         }
 
         .marquee {
-            background: #ffff00;
+            background: rgba(255, 255, 0, 0.9);
             border: 2px solid #ff0000;
             padding: 10px;
             margin: 10px 0;
@@ -74,7 +70,7 @@
         .sidebar {
             float: left;
             width: 200px;
-            background: #00ffff;
+            background: rgba(0, 255, 255, 0.9);
             border: 2px solid #0000ff;
             padding: 15px;
             margin-right: 20px;
@@ -82,7 +78,7 @@
 
         .main-content {
             margin-left: 240px;
-            background: #ffff99;
+            background: rgba(255, 255, 153, 0.9);
             border: 2px solid #ff6600;
             padding: 15px;
         }
@@ -107,7 +103,7 @@
         }
 
         .counter {
-            background: #000000;
+            background: rgba(0, 0, 0, 0.9);
             color: #00ff00;
             font-family: 'Courier New', monospace;
             padding: 10px;
@@ -117,14 +113,14 @@
         }
 
         .guestbook {
-            background: #ff99ff;
+            background: rgba(255, 153, 255, 0.9);
             border: 3px solid #ff00ff;
             padding: 15px;
             margin: 15px 0;
         }
 
         .construction {
-            background: #ffff00;
+            background: rgba(255, 255, 0, 0.9);
             border: 3px solid #ff0000;
             padding: 10px;
             text-align: center;
@@ -132,7 +128,7 @@
         }
 
         .webring {
-            background: #cccccc;
+            background: rgba(204, 204, 204, 0.9);
             border: 2px solid #666666;
             padding: 10px;
             text-align: center;
@@ -140,7 +136,7 @@
         }
 
         .footer {
-            background: #000000;
+            background: rgba(0, 0, 0, 0.9);
             color: #ffffff;
             text-align: center;
             padding: 20px;
@@ -190,7 +186,7 @@
             margin: 10px 0;
             font-family: 'Courier New', monospace;
             color: #00ff00;
-            background: #000;
+            background: rgba(0, 0, 0, 0.9);
             padding: 10px;
             border: 2px solid #00ff00;
         }
@@ -216,6 +212,16 @@
         .tic-tac-toe button:hover {
             background: #ffff99;
         }
+
+        /* Enhanced retro effects for the creature background */
+        .retro-glow {
+            text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00, 0 0 30px #00ff00;
+        }
+
+        .alien-border {
+            border: 3px solid #00ff00;
+            box-shadow: 0 0 15px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.1);
+        }
     </style>
 </head>
 <body>
@@ -223,11 +229,14 @@
         <div class="header">
             <h1>🌟 Welcome to My <span class="blink">AWESOME</span> Website! 🌟</h1>
             <p class="flame-text">★ The Coolest Site on the Web ★</p>
+            <p style="color: white; font-size: 14px; margin: 5px 0;">
+                <span class="retro-glow">👽 FEATURING AUTHENTIC ALIEN TECHNOLOGY 👽</span>
+            </p>
         </div>
 
         <div class="marquee">
             <marquee behavior="scroll" direction="left" scrollamount="5">
-                🎉 Welcome to my homepage! 🎉 Don't forget to sign my guestbook! 🎉 This site is best viewed in Internet Explorer 6.0! 🎉
+                🎉 Welcome to my homepage! 🎉 Don't forget to sign my guestbook! 🎉 This site is best viewed in Internet Explorer 6.0! 🎉 NOW WITH 100% MORE ALIENS! 🎉
             </marquee>
         </div>
 
@@ -235,10 +244,11 @@
             <img src="/placeholder.svg?height=50&width=100" alt="Under Construction" style="vertical-align: middle;">
             <strong>🚧 UNDER CONSTRUCTION 🚧</strong>
             <img src="/placeholder.svg?height=50&width=100" alt="Under Construction" style="vertical-align: middle;">
+            <br><small>👽 Alien technology being integrated... 👽</small>
         </div>
 
         <div class="content">
-            <div class="sidebar">
+            <div class="sidebar alien-border">
                 <h3>🔥 Navigation 🔥</h3>
                 <a href="#" class="button">Home</a><br>
                 <a href="#" class="button">About Me</a><br>
@@ -246,15 +256,16 @@
                 <a href="#" class="button">Cool Links</a><br>
                 <a href="#" class="button">Guestbook</a><br>
 
-                <div class="counter">
+                <div class="counter alien-border">
                     <strong>VISITOR COUNTER</strong><br>
                     <span style="font-size: 20px;">001337</span><br>
-                    You are visitor #1337!
+                    You are visitor #1337!<br>
+                    <small class="retro-glow">👽 ALIENS DETECTED: 42 👽</small>
                 </div>
 
                 <h4>🎵 Now Playing:</h4>
-                <p style="background: #000; color: #00ff00; padding: 5px; font-family: monospace;">
-                    ♪ Darude - Sandstorm ♪
+                <p style="background: rgba(0,0,0,0.9); color: #00ff00; padding: 5px; font-family: monospace;">
+                    ♪ X-Files Theme ♪
                 </p>
 
                 <h4>⭐ Cool Sites:</h4>
@@ -270,9 +281,11 @@
                 <p>
                     Welcome to my <strong>totally awesome</strong> homepage! This site was created with 
                     <span class="blink">100% pure HTML</span> and lots of <span style="color: #ff0000;">♥ LOVE ♥</span>!
+                    <br><br>
+                    <span class="retro-glow">👽 Now featuring authentic alien technology from Area 51! 👽</span>
                 </p>
 
-                <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; background: #ffffcc;">
+                <table border="1" cellpadding="5" cellspacing="0" style="width: 100%; background: rgba(255,255,204,0.9);">
                     <tr style="background: #ff6600; color: white;">
                         <td><strong>Last Updated:</strong></td>
                         <td><strong>Webmaster:</strong></td>
@@ -291,9 +304,10 @@
                     <li>Updated my Pokémon collection page</li>
                     <li>New MIDI background music</li>
                     <li><span class="blink">NEW!</span> Guestbook feature</li>
+                    <li><span class="retro-glow">👽 ALIEN BACKGROUND TECHNOLOGY! 👽</span></li>
                 </ul>
 
-                <div class="guestbook">
+                <div class="guestbook alien-border">
                     <h3>📝 Sign My Guestbook! 📝</h3>
                     <p>Please sign my guestbook and let me know what you think of my site!</p>
                     <form>
@@ -324,19 +338,23 @@
                     <a href="#" style="color: #0000ff;">Hamster Dance</a> |
                     <a href="#" style="color: #0000ff;">All Your Base</a> |
                     <a href="#" style="color: #0000ff;">Dancing Baby</a> |
-                    <a href="#" style="color: #0000ff;">Geocities</a>
+                    <a href="#" style="color: #0000ff;">Geocities</a> |
+                    <a href="#" style="color: #00ff00;">👽 UFO Sightings 👽</a>
                 </p>
             </div>
 
             <div style="clear: both;"></div>
 
             <div style="clear: both; margin: 20px 0;">
-                <div style="background: linear-gradient(45deg, #ff00ff, #00ffff); border: 5px solid #ffff00; padding: 20px;">
+                <div style="background: linear-gradient(45deg, #ff00ff, #00ffff); border: 5px solid #ffff00; padding: 20px;" class="alien-border">
                     <h2 style="text-align: center; color: white; text-shadow: 2px 2px 0px #000;">
                         🎮 RETRO GAME ARCADE 🎮
                     </h2>
+                    <p style="text-align: center; color: white;">
+                        <span class="retro-glow">👽 Powered by Alien Gaming Technology 👽</span>
+                    </p>
                     
-                    <table border="3" cellpadding="10" cellspacing="5" style="width: 100%; background: #ffffff;">
+                    <table border="3" cellpadding="10" cellspacing="5" style="width: 100%; background: rgba(255,255,255,0.9);">
                         <tr style="background: #ff6600; color: white;">
                             <td><strong>Game</strong></td>
                             <td><strong>Description</strong></td>
@@ -378,7 +396,7 @@
                     </table>
                     
                     <div id="gameFrame" style="display: none; margin-top: 20px; text-align: center;">
-                        <div style="background: #000; border: 3px solid #ff0000; padding: 15px;">
+                        <div style="background: rgba(0,0,0,0.9); border: 3px solid #ff0000; padding: 15px;" class="alien-border">
                             <button onclick="closeGame()" class="button" style="margin-bottom: 10px;">❌ CLOSE GAME</button>
                             <div id="gameContent"></div>
                         </div>
@@ -386,12 +404,13 @@
                 </div>
             </div>
 
-            <div class="webring">
+            <div class="webring alien-border">
                 <strong>🌐 WEBRING 🌐</strong><br>
                 <a href="#">&lt;&lt; Previous</a> |
                 <a href="#">Random</a> |
                 <a href="#">Next &gt;&gt;</a><br>
-                <small>This site is part of the "Awesome Y2K Sites" webring</small>
+                <small>This site is part of the "Awesome Y2K Sites" webring</small><br>
+                <small class="retro-glow">👽 Alien-approved websites only! 👽</small>
             </div>
         </div>
 
@@ -399,7 +418,8 @@
             <p>
                 <span class="blink">★</span> Copyright © 2000 xXx_WebMaster_2000_xXx <span class="blink">★</span><br>
                 Best viewed with Internet Explorer 6.0 at 800x600 resolution<br>
-                <small>This page has been visited <strong>1,337</strong> times since January 1, 2000</small>
+                <small>This page has been visited <strong>1,337</strong> times since January 1, 2000</small><br>
+                <small class="retro-glow">👽 Alien technology integration: 100% complete 👽</small>
             </p>
             <p>
                 <img src="/placeholder.svg?height=31&width=88" alt="Powered by HTML">
@@ -413,12 +433,14 @@
         document.addEventListener('mousemove', function(e) {
             if (Math.random() > 0.95) {
                 const sparkle = document.createElement('div');
-                sparkle.innerHTML = '✨';
+                sparkle.innerHTML = Math.random() > 0.5 ? '✨' : '👽';
                 sparkle.style.position = 'fixed';
                 sparkle.style.left = e.clientX + 'px';
                 sparkle.style.top = e.clientY + 'px';
                 sparkle.style.pointerEvents = 'none';
                 sparkle.style.zIndex = '9999';
+                sparkle.style.color = '#00ff00';
+                sparkle.style.textShadow = '0 0 10px #00ff00';
                 document.body.appendChild(sparkle);
                 
                 setTimeout(() => {
