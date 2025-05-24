@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-image: url('images/creature-bg.jpeg');
+            background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Nowhere%202-HsQxnGLVacyojDRceXzldTuxyxRvOQ.jpeg');
             background-repeat: repeat;
             background-size: 200px 200px;
             background-attachment: fixed;
@@ -221,6 +221,26 @@
         .alien-border {
             border: 3px solid #00ff00;
             box-shadow: 0 0 15px #00ff00, inset 0 0 15px rgba(0, 255, 0, 0.1);
+        }
+
+        /* Fallback in case image doesn't load */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
     </style>
 </head>
