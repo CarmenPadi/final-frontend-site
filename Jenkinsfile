@@ -7,18 +7,16 @@ pipeline {
                 checkout scm
             }
         }
+
         stage('Build Docker Image') {
             steps {
-                script {
-                    dockerImage = docker.build("carmenpadi/retro-frontend:latest")
-                }
+                sh 'docker build -t carmenpadi/retro-frontend:latest .'
             }
         }
+
         stage('Run Docker Container') {
             steps {
-                script {
-                    docker.image("carmenpadi/retro-frontend:latest").run('-p 8080:80')
-                }
+                sh 'docker run -d -p 8888:80 --name retro-frontend carmenpadi/retro-frontend:latest'
             }
         }
     }
